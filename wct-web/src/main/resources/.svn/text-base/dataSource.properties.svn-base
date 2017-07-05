@@ -1,0 +1,9 @@
+url = jdbc:mysql://172.168.1.106:3306/wct-web?useUnicode=true&amp;characterEncoding=utf-8
+username = root
+password = root
+initialSize=1
+minIdle=1
+maxActivee=20
+
+showSql = true
+devMode = true

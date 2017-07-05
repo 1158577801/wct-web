@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.cn.wct</groupId>
+	<artifactId>wct-core</artifactId>
+	<version>0.0.1-version</version>
+	<packaging>jar</packaging>
+
+	<name>wct-core</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.cn.wct</groupId>
+			<artifactId>wct-base</artifactId>
+			<version>0.0.1-version</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.jfinal/jfinal -->
+		<dependency>
+			<groupId>com.jfinal</groupId>
+			<artifactId>jfinal</artifactId>
+			<version>2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jfinal</groupId>
+			<artifactId>jfinal-ext</artifactId>
+			<version>3.1.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.jfinal/cos -->
+		<dependency>
+			<groupId>com.jfinal</groupId>
+			<artifactId>cos</artifactId>
+			<version>26Dec2008</version>
+		</dependency>
+	</dependencies>
+</project>

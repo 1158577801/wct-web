@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.sys.wct</groupId>
+	<artifactId>wct-web</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	
+
+	<dependencies>
+		<dependency>
+			<groupId>com.cn.wct</groupId>
+			<artifactId>wct-core</artifactId>
+			<version>0.0.1-version</version>
+		</dependency>
+	</dependencies>
+	
+	
+	
+	<build>
+        <finalName>wct-web</finalName>
+        <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
+        <testSourceDirectory>${basedir}/src/test/java</testSourceDirectory>
+        <outputDirectory>${basedir}/src/main/webapp/WEB-INF/classes</outputDirectory>
+        <testOutputDirectory>${basedir}/src/main/webapp/WEB-INF/classes</testOutputDirectory>
+
+        
+       
+    </build>
+</project>

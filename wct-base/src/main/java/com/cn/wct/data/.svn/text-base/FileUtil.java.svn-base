@@ -1,0 +1,180 @@
+package com.cn.wct.data;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class FileUtil {
+
+	/** 允许上传的图片类型 **/
+	public static final String IMG_TYPE = ".jpg|.gif|.png|.bmp";
+	/** 允许上传的所有文件类型 **/
+	public static final String ALL_TYPE = ".jpg|.jepg|.gif|.png|.bmp|.gz|.rar|.zip|.pdf|.txt|.swf|.mp3|.jar|.apk|.ipa";
+
+	/**
+	 * 检测文件大小
+	 * 
+	 * @param file 文件
+	 * @param size 限制大小
+	 * @return true 超过限制
+	 */
+	public static boolean checkFileSize(File file, int kb) {
+		long size = file.length();
+		if (size > 1024 * kb) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * <pre>
+	 * Comment : 파일을 생성한다.
+	 * </pre>
+	 *
+	 * @param String
+	 *            fileName 파일의 절대경로 +파일명
+	 * @param String
+	 *            content 저장할 문자열입니다. c:/test/test1/test44.txt
+	 *
+	 */
+	public String createNewFile(String filePath) {
+
+		// 인자값 유효하지 않은 경우 블랭크 리턴
+		if (filePath == null || filePath.equals("")) {
+			return "";
+		}
+
+		File file = new File(filePath);
+		String result = "";
+		try {
+			if (file.exists()) {
+				result = filePath;
+			} else {
+				// 존재하지 않으면 생성함
+				new File(file.getParent()).mkdirs();
+				if (file.createNewFile()) {
+					result = file.getAbsolutePath();
+				}
+			}
+		} catch (Exception e) {
+			// e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+		return result;
+	}
+	/**
+	 * 检查文件类型
+	 * 
+	 * @param 文件名
+	 * @param isImg 是否检查图片
+	 * @return true=后缀合法
+	 * @throws
+	 */
+	public static boolean checkFileType(String fileName, boolean isImg) {
+		String fileType = getFileType(fileName);
+		if (isImg) {
+			return IMG_TYPE.indexOf(fileType.toLowerCase()) != -1;
+		} else {
+			return ALL_TYPE.indexOf(fileType.toLowerCase()) != -1;
+		}
+	}
+
+	/**
+	 * 获取文件类型
+	 * 
+	 * @param fileName
+	 * @throws
+	 */
+	public static String getFileType(String fileName) {
+		return fileName.substring(fileName.lastIndexOf("."), fileName.length());
+	}
+
+	/**
+	 * 文件是否存在
+	 * 
+	 * @param path
+	 * @return
+	 */
+	public static boolean isExists(String path) {
+		File file = new File(path);
+		if (file.exists() && file.length() > 0) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * 删除文件
+	 * 
+	 * @param path
+	 */
+	public static void delete(String path) {
+		delete(new File(path));
+	}
+
+	/**
+	 * 删除文件
+	 * 
+	 * @param file
+	 */
+	public static void delete(File file) {
+		if (file.exists()) {
+			file.delete();
+		}
+	}
+
+	/**
+	 * 重命名文件
+	 * 
+	 * @param path
+	 * @param toPath
+	 * @throws Exception
+	 */
+	public static void rename(String path, String toPath) throws IOException {
+		File toBeRenamed = new File(path);
+		// 检查要重命名的文件是否存在，是否是文件
+		if (!toBeRenamed.exists() || toBeRenamed.isDirectory()) {
+			throw new IOException("File does not exist: " + path);
+		}
+
+		File newFile = new File(toPath);
+		if (toBeRenamed.renameTo(newFile) == false) {
+			throw new IOException("rename error");
+		}
+	}
+
+	public static void main(String[] args) {
+		try {
+			rename("C:\\1\\天使的翅膀.txt", "天使的翅膀.txt1");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// String s = getFileType("12321.jpg");
+		// System.out.println(s);
+	}
+	
+	
+	/**
+     * 获得文件夹下所有的文件名称
+     * @designer 郝惠芳
+     * @developer 郝惠芳
+     * @Modified by
+     * @param path path
+     * @return List<String>
+     */
+    public static List<String> getAllFileNameByPath(String path) {
+        File f = new File(path);
+        File[] fileInF = f.listFiles(); // 得到f文件夹下面的所有文件。
+        List<String> list = new ArrayList<String>();
+        for (File file : fileInF) {
+            //判断是不是文件夹
+           if (!file.isDirectory()) {
+               list.add(file.getName());
+           }
+        }
+        return list;
+    }
+}

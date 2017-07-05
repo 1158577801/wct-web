@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/pro/!svn/ver/39/trunk/wct-web/20170108/wct-base/src/main/java/com/cn/wct/eMailUtil
+END
+MailUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/pro/!svn/ver/39/trunk/wct-web/20170108/wct-base/src/main/java/com/cn/wct/eMailUtil/MailUtil.java
+END
+MimeMessageVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/pro/!svn/ver/39/trunk/wct-web/20170108/wct-base/src/main/java/com/cn/wct/eMailUtil/MimeMessageVo.java
+END
+SMTPUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/pro/!svn/ver/39/trunk/wct-web/20170108/wct-base/src/main/java/com/cn/wct/eMailUtil/SMTPUtil.java
+END
+PopupAuthenticator.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/pro/!svn/ver/39/trunk/wct-web/20170108/wct-base/src/main/java/com/cn/wct/eMailUtil/PopupAuthenticator.java
+END

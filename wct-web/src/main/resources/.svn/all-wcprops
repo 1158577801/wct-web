@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/pro/!svn/ver/41/trunk/wct-web/20170108/wct-web/src/main/resources
+END
+redis.properties
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/pro/!svn/ver/41/trunk/wct-web/20170108/wct-web/src/main/resources/redis.properties
+END
+dataSource.properties
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/pro/!svn/ver/41/trunk/wct-web/20170108/wct-web/src/main/resources/dataSource.properties
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/pro/!svn/ver/41/trunk/wct-web/20170108/wct-web/src/main/resources/log4j.properties
+END
