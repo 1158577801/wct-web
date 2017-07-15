@@ -102,7 +102,7 @@ public class MailUtil {
 		mimeDTO.setSubject("222");
 		mimeDTO.setText("333");
 		for(int i=0;i<1;i++){
-			MailUtil.sendEmail("wct23817661432@163.com", "WCT1158577801wct", "1158577801@qq.com", mimeDTO);
+			MailUtil.sendEmail("wct23817661432@163.com", "WCT1158577801", "1158577801@qq.com", mimeDTO);
 			Thread.sleep(5000);
 		}
 	}
