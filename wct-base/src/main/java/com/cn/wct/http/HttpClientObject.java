@@ -1,6 +1,7 @@
 package com.cn.wct.http;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,11 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+
+
 
 /*********************************************************************************
 //* Copyright (C) 2014 Pingan Haoche (PAHAOCHE). All Rights Reserved.
@@ -40,7 +46,27 @@ public class HttpClientObject<T> {
     public HttpClientObject() {
 
     }
-
+    public static void main(String[] args) {
+    	//http://localhost:8080/onlineVideoWebApp/doApp?userName=admin&invokeMethod=login&dataMap={"userPwd":"242343434"}
+    		HttpClientObject s=new HttpClientObject();
+    		Map<String,String> param =new HashMap<String,String>();
+    		param.put("userName", "admin");
+    		param.put("invokeMethod", "login");
+    		param.put("timestamp", System.currentTimeMillis()+"");
+    		JSONObject json=new JSONObject();
+    		json.put("userPwd", "242343434");
+    		
+    		param.put("dataMap",JSON.toJSONString(json) );
+    		
+    		try {
+				String a=s.post("http://localhost:8080/onlineVideoWebApp/doApp", param);
+				System.out.println(a);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    
+	}
     /**
      * HttpClient工具类
      * @param url
@@ -51,6 +77,7 @@ public class HttpClientObject<T> {
     public String post(String url,Map<String,String> param)throws Exception{
     	if(param.isEmpty() || StringUtils.isBlank(url))
     		throw new Exception("请求参数不合法");
+    	System.out.println("=========请求URL:"+url+"=========参数："+JSON.toJSONString(param));
 		Iterator<String> it = param.keySet().iterator();
 		List<NameValuePair> list = new ArrayList<NameValuePair>();
 		NameValuePair nv = null;

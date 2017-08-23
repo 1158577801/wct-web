@@ -21,9 +21,9 @@ public final class Md5Util {
 
     public static void main( String[] args )
     {
-    	String inputStr = "2222";
-    	System.out.println( Md5Util.hmacSign(inputStr,"12345678"));//自定义Key
-        System.out.println(Md5Util.md5Encode("admin"));
+    	String inputStr = "123456";
+    	System.out.println( Md5Util.hmacSign(inputStr,"123456"));//自定义Key
+        System.out.println(Md5Util.md5Encode("123456"));
     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
