@@ -1,7 +1,6 @@
 package com.cn.wct.http;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +18,6 @@ import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 
 
 
@@ -46,27 +44,7 @@ public class HttpClientObject<T> {
     public HttpClientObject() {
 
     }
-    public static void main(String[] args) {
-    	//http://localhost:8080/onlineVideoWebApp/doApp?userName=admin&invokeMethod=login&dataMap={"userPwd":"242343434"}
-    		HttpClientObject s=new HttpClientObject();
-    		Map<String,String> param =new HashMap<String,String>();
-    		param.put("userName", "admin");
-    		param.put("invokeMethod", "login");
-    		param.put("timestamp", System.currentTimeMillis()+"");
-    		JSONObject json=new JSONObject();
-    		json.put("userPwd", "242343434");
-    		
-    		param.put("dataMap",JSON.toJSONString(json) );
-    		
-    		try {
-				String a=s.post("http://localhost:8080/onlineVideoWebApp/doApp", param);
-				System.out.println(a);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
     
-	}
     /**
      * HttpClient工具类
      * @param url
