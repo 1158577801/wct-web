@@ -52,7 +52,7 @@ public class HttpClientObject<T> {
      * @return
      * @throws Exception
      */
-    public String post(String url,Map<String,String> param)throws Exception{
+    public String post(String url,Map<String,Object> param)throws Exception{
     	if(param.isEmpty() || StringUtils.isBlank(url))
     		throw new Exception("请求参数不合法");
     	System.out.println("=========请求URL:"+url+"=========参数："+JSON.toJSONString(param));
@@ -62,7 +62,7 @@ public class HttpClientObject<T> {
 		String key = "";
 		while(it.hasNext()){
 			key = it.next();
-			nv = new BasicNameValuePair(key,(String)param.get(key));
+			nv = new BasicNameValuePair(key,param.get(key).toString());
 			list.add(nv);
 		}
 		HttpClientObject<NameValuePair> client = new HttpClientObject<NameValuePair>();
@@ -70,6 +70,8 @@ public class HttpClientObject<T> {
 		String rsjson = client.doPost(list);
 		if(StringUtils.isBlank(rsjson))
 			throw new Exception("请求接口无结果 ，url = "+url);
+		
+		System.out.println("=============响应============="+rsjson);
 		return rsjson;
 	}
     
