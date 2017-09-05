@@ -38,12 +38,7 @@ import com.alibaba.fastjson.JSON;
 public class HttpClientObject<T> {
 
     private  Logger logger = Logger.getLogger(HttpClientObject.class);
-    private  String url;
-    private  T      t;
-
-    public HttpClientObject() {
-
-    }
+   
     
     /**
      * HttpClient工具类
@@ -65,9 +60,7 @@ public class HttpClientObject<T> {
 			nv = new BasicNameValuePair(key,param.get(key).toString());
 			list.add(nv);
 		}
-		HttpClientObject<NameValuePair> client = new HttpClientObject<NameValuePair>();
-		client.setUrl(url);
-		String rsjson = client.doPost(list);
+		String rsjson=doPostMethod(url,list);
 		if(StringUtils.isBlank(rsjson))
 			throw new Exception("请求接口无结果 ，url = "+url);
 		
@@ -75,14 +68,14 @@ public class HttpClientObject<T> {
 		return rsjson;
 	}
     
-    public String doPost(List<NameValuePair> list) {
+    public String doPostMethod(String url,List<NameValuePair> list) {
 
         String result = null;
         try {
 
             HttpEntity requesthttpEntity = new UrlEncodedFormEntity(list, "UTF-8");
 
-            HttpPost httpPost = new HttpPost(this.url);
+            HttpPost httpPost = new HttpPost(url);
 
             httpPost.setEntity(requesthttpEntity);
             HttpClient httpClient = new DefaultHttpClient();
@@ -111,31 +104,4 @@ public class HttpClientObject<T> {
         return result;
     }
 
-    /**
-     * @return the url
-     */
-    public String getUrl() {
-        return url;
-    }
-
-    /**
-     * @return the t
-     */
-    public T getT() {
-        return t;
-    }
-
-    /**
-     * @param url the url to set
-     */
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    /**
-     * @param t the t to set
-     */
-    public void setT(T t) {
-        this.t = t;
-    }
 }
